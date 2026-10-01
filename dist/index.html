@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Engineering systems for automated test, measurement and signal processing." />
+  <title>Chenxing Zhang — Test & Measurement Systems</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Chenxing Zhang home"><span class="brand-mark">CZ</span><span>CHENXING ZHANG</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#expertise">Expertise</a><a href="#work">Work</a><a href="#insights">Insights</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="header-link" href="#contact">Start a conversation</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Independent engineering practice</p>
+        <h1 id="hero-title">Systems that turn <em>complex signals</em> into confident decisions.</h1>
+        <p class="lede">I design test, measurement and signal-processing software for teams building serious instrumentation and automated test systems.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#work">Explore selected work</a><a class="button button-secondary" href="#contact">Discuss a project</a></div>
+      </div>
+      <div class="signal-stage" aria-label="Illustration of a signal measurement display">
+        <div class="stage-top"><span>LIVE ACQUISITION</span><span class="record"><i></i> ANALYSIS READY</span></div>
+        <div class="signal-grid">
+          <svg viewBox="0 0 680 340" role="img" aria-label="Signal trace and measurement grid" preserveAspectRatio="none">
+            <defs><linearGradient id="trace" x1="0" x2="1"><stop stop-color="#9be06a"/><stop offset="1" stop-color="#d8ff84"/></linearGradient></defs>
+            <g class="grid-lines"><path d="M0 56H680M0 113H680M0 170H680M0 227H680M0 284H680"/><path d="M85 0V340M170 0V340M255 0V340M340 0V340M425 0V340M510 0V340M595 0V340"/></g>
+            <path class="area" d="M0 271 C30 264 35 263 55 251 S86 197 108 242 S138 303 160 267 S181 235 198 259 S223 273 246 201 S270 67 292 190 S317 273 343 245 S367 256 389 230 S415 274 443 255 S465 217 486 251 S510 277 535 252 S563 170 584 237 S616 267 640 248 S664 260 680 243 V340H0Z"/>
+            <path class="trace" d="M0 271 C30 264 35 263 55 251 S86 197 108 242 S138 303 160 267 S181 235 198 259 S223 273 246 201 S270 67 292 190 S317 273 343 245 S367 256 389 230 S415 274 443 255 S465 217 486 251 S510 277 535 252 S563 170 584 237 S616 267 640 248 S664 260 680 243"/>
+            <line x1="292" y1="60" x2="292" y2="295" class="marker"/><circle cx="292" cy="147" r="6" class="dot"/>
+          </svg>
+          <div class="readout"><span>Center frequency</span><strong>3.500 <small>GHz</small></strong><span>Measurement bandwidth</span><strong>80 <small>MHz</small></strong></div>
+        </div>
+        <div class="stage-bottom"><span>IQ / FFT / EVM / ACPR</span><span>01 — SYSTEM VIEW</span></div>
+      </div>
+    </section>
+
+    <section class="statement"><p>From RF front ends to desktop software, every layer should make an instrument more useful to the engineer relying on it.</p></section>
+
+    <section class="section expertise" id="expertise" aria-labelledby="expertise-title">
+      <div class="section-heading"><p class="eyebrow">01 — Capabilities</p><h2 id="expertise-title">Built for the point where hardware, software and measurement meet.</h2></div>
+      <div class="capability-grid">
+        <article><span class="index">01</span><h3>Automated Test Systems</h3><p>Scalable architectures for high-throughput validation, manufacturing and communication-system test.</p><span class="tag">ATE / PXI(e) / LXI</span></article>
+        <article><span class="index">02</span><h3>Spectrum & Signal Analysis</h3><p>Acquisition and analysis workflows for spectrum analyzers, real-time systems and IQ data.</p><span class="tag">SA / RTSA / IQ</span></article>
+        <article><span class="index">03</span><h3>DSP & Wireless Measurement</h3><p>Algorithms and tooling for LTE, 5G NR, baseband processing and practical RF measurement.</p><span class="tag">5G / LTE / DSP</span></article>
+        <article><span class="index">04</span><h3>Instrument Software</h3><p>Clear, maintainable desktop software that helps engineering teams ship and support instruments.</p><span class="tag">C++ / Qt / Windows</span></article>
+      </div>
+    </section>
+
+    <section class="section work" id="work" aria-labelledby="work-title">
+      <div class="section-heading split"><div><p class="eyebrow">02 — Selected directions</p><h2 id="work-title">Work that makes difficult measurements repeatable.</h2></div><p>Representative areas of practice. Detailed project information can be shared where appropriate.</p></div>
+      <div class="work-list">
+        <article class="work-item"><span class="work-number">01</span><div><p class="work-kind">SYSTEM ARCHITECTURE</p><h3>Scalable ATE Platform</h3><p>A modular foundation for complex communication-system test: sequencing, instrument control, data capture and reliable execution at scale.</p></div><div class="work-metrics"><span>Multi-instrument</span><span>Automation</span><span>Traceability</span></div></article>
+        <article class="work-item"><span class="work-number">02</span><div><p class="work-kind">MEASUREMENT SOFTWARE</p><h3>Spectrum Analyzer Platform</h3><p>A unified analysis environment covering swept and real-time workflows, modulation analysis and deep inspection of IQ data.</p></div><div class="work-metrics"><span>SA / RTSA</span><span>LTE / NR</span><span>IQ analytics</span></div></article>
+        <article class="work-item"><span class="work-number">03</span><div><p class="work-kind">PRODUCT FOUNDATION</p><h3>Instrument Software Platform</h3><p>A durable application architecture for test-and-measurement products, designed to evolve with new hardware, modes and users.</p></div><div class="work-metrics"><span>Desktop UX</span><span>Device control</span><span>Extensible</span></div></article>
+      </div>
+    </section>
+
+    <section class="insights" id="insights" aria-labelledby="insights-title"><div class="section-heading split"><div><p class="eyebrow">03 — Notes from the bench</p><h2 id="insights-title">Engineering ideas worth sharing.</h2></div><a class="text-link" href="#contact">Request an article</a></div><div class="insight-grid"><article><p class="article-meta">ARCHITECTURE · 8 MIN READ</p><h3>Designing automated test systems that can grow without becoming fragile.</h3><span>Coming soon</span></article><article><p class="article-meta">MEASUREMENT · 6 MIN READ</p><h3>What modern spectrum-analysis software must do beyond drawing a trace.</h3><span>Coming soon</span></article><article><p class="article-meta">PLATFORMS · 7 MIN READ</p><h3>Creating a common software core for an evolving instrument family.</h3><span>Coming soon</span></article></div></section>
+
+    <section class="contact" id="contact"><div><p class="eyebrow">04 — Contact</p><h2>Working on a measurement or automation challenge?</h2></div><div><p>I welcome conversations with engineering teams developing test systems, RF instruments and signal-processing products.</p><a class="contact-link" href="mailto:hello@example.com">hello@example.com <span>↗</span></a><p class="contact-note">Replace this address and add your LinkedIn profile before publishing.</p></div></section>
+  </main>
+  <footer><a class="brand" href="#top"><span class="brand-mark">CZ</span><span>CHENXING ZHANG</span></a><span>© 2026 · Test & Measurement Systems</span><a href="#top">Back to top</a></footer>
+</body>
+</html>
