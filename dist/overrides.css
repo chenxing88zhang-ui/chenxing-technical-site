@@ -1,0 +1,16 @@
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 25px;
+}
+
+.contact-link {
+  margin: 0 0 13px;
+  font-size: 1.05rem;
+}
+
+.contact-link-subtle {
+  font-size: .87rem;
+  font-weight: 600;
+}
