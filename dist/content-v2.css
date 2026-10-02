@@ -16,10 +16,17 @@
 }
 
 a:focus-visible { outline: 2px solid var(--mint); outline-offset: 5px; }
-.project-entry { display: flex; flex-direction: column; }
-.project-entry h3 a, .writing-entry h3 a { color: var(--text); text-decoration: none; }
-.project-entry h3 a:hover, .writing-entry h3 a:hover { color: var(--mint); }
-.entry-link { display: inline-block; margin-top: 24px; color: var(--mint); font: .75rem var(--mono); text-decoration: none; }
+.project-entry { display: flex; flex-direction: column; position: relative; transition: border-color .2s ease, background-color .2s ease, transform .2s ease; }
+.project-entry h3 a, .project-entry h3 a:visited, .writing-entry h3 a, .writing-entry h3 a:visited { color: var(--text); text-decoration: none; }
+.project-entry h3 a:hover, .writing-entry h3 a:hover { color: var(--text); }
+.project-entry h3 a::after { content: ""; position: absolute; inset: 0; }
+.project-entry:hover, .project-entry:focus-within { border-color: #668f7f; background-color: #11221c; transform: translateY(-3px); }
+.project-entry:focus-within { outline: 2px solid var(--mint); outline-offset: 4px; }
+.entry-link, .entry-link:visited { display: inline-block; margin-top: 24px; color: var(--text); font: .75rem var(--mono); text-decoration: none; }
+.entry-link { position: relative; width: fit-content; border-bottom: 1px solid #496255; padding-bottom: 7px; transition: border-color .2s ease, transform .2s ease; }
+.project-entry .entry-link { z-index: 1; }
+.project-entry:hover .entry-link, .entry-link:hover, .writing-entry:focus-within .entry-link { border-bottom-color: var(--mint); transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) { .project-entry, .entry-link { transition: none; } .project-entry:hover, .project-entry:focus-within, .project-entry:hover .entry-link, .entry-link:hover { transform: none; } }
 .project-entry .entry-link { margin-top: auto; padding-top: 25px; }
 .work .case-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .writing-entry { display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-top: 45px; padding: 30px 0; border-block: 1px solid var(--line); }

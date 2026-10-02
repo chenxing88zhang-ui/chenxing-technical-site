@@ -51,6 +51,6 @@ export function renderPage(page) {
 for (const page of pages) {
   const dir = resolve(root, 'dist', page.path);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(resolve(dir, 'index.html'), renderPage(page));
+  writeFileSync(resolve(dir, 'index.html'), renderPage(page).replace('href="../../overrides.css"', 'href="../../content-v2.css"'));
 }
 console.log(`Built ${pages.length} content pages.`);
