@@ -14,3 +14,18 @@
   font-size: .87rem;
   font-weight: 600;
 }
+
+.ate-project {
+  grid-template-columns: 150px minmax(0, 1fr);
+}
+
+.ate-project .case-body h3 { margin-top: 0; }
+.ate-project .case-index { line-height: 1.8; }
+.ate-preview { grid-column: 1 / -1; margin: 0; min-width: 0; }
+.ate-preview img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.ate-preview figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; color: var(--muted); font-size: .74rem; }
+.ate-preview figcaption a { color: var(--mint); text-decoration: none; white-space: nowrap; }
+@media (max-width: 850px) {
+  .ate-project { grid-template-columns: minmax(0, 1fr); }
+  .ate-preview figcaption { flex-direction: column; }
+}
