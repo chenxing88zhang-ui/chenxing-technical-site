@@ -4,61 +4,132 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Chenxing Zhang builds test, measurement and signal-processing software for RF and instrumentation systems." />
-  <title>Chenxing Zhang — Test & Measurement Software</title>
+  <meta name="theme-color" content="#f4f2ec" />
+  <title>Chenxing Zhang — Test &amp; Measurement Software</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&amp;family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="content-v2.css" />
+  <noscript><style>@media (max-width: 760px) { .nav-toggle { display: none !important; } .header-inner { flex-wrap: wrap; } .site-nav { display: flex !important; position: static !important; flex-basis: 100%; flex-direction: column; align-items: stretch; margin: 0 0 .5rem; } }</style></noscript>
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Chenxing Zhang home"><span class="brand-mark">CZ</span><span>CHENXING ZHANG</span></a>
-    <nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#writing">Writing</a><a href="#capabilities">Capabilities</a><a href="#contact">Contact</a></nav>
-    <a class="header-link" href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Chenxing Zhang home"><span class="brand-mark" aria-hidden="true">CZ</span><span class="brand-name">Chenxing Zhang</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-text">Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#writing">Writing</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-external" href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> RF · test · measurement software</p>
+        <p class="eyebrow"><span></span>RF · test · measurement software</p>
         <h1 id="hero-title">Engineering measurement systems people can <em>trust.</em></h1>
         <p class="lede">I work across instrument control, data acquisition and signal analysis to turn demanding RF measurement workflows into dependable software products.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#work">View selected work <span>↓</span></a><a class="button button-secondary" href="#contact">Get in touch</a></div>
-        <dl class="hero-facts"><div><dt>Focus</dt><dd>RF &amp; instrumentation</dd></div><div><dt>From</dt><dd>Acquisition to analysis</dd></div><div><dt>Built for</dt><dd>Engineers in the loop</dd></div></dl>
-      </div>
-      <div class="signal-stage" aria-label="Illustration of a signal measurement display">
-        <div class="stage-top"><span>MEASUREMENT CONSOLE / 01</span><span class="record"><i></i> READY</span></div>
-        <div class="signal-grid">
-          <svg viewBox="0 0 680 340" role="img" aria-label="Signal trace and measurement grid" preserveAspectRatio="none">
-            <defs><linearGradient id="trace" x1="0" x2="1"><stop stop-color="#8ee6bd"/><stop offset="1" stop-color="#cef27a"/></linearGradient></defs>
-            <g class="grid-lines"><path d="M0 56H680M0 113H680M0 170H680M0 227H680M0 284H680"/><path d="M85 0V340M170 0V340M255 0V340M340 0V340M425 0V340M510 0V340M595 0V340"/></g>
-            <path class="area" d="M0 271 C30 264 35 263 55 251 S86 197 108 242 S138 303 160 267 S181 235 198 259 S223 273 246 201 S270 67 292 190 S317 273 343 245 S367 256 389 230 S415 274 443 255 S465 217 486 251 S510 277 535 252 S563 170 584 237 S616 267 640 248 S664 260 680 243 V340H0Z"/>
-            <path class="trace" d="M0 271 C30 264 35 263 55 251 S86 197 108 242 S138 303 160 267 S181 235 198 259 S223 273 246 201 S270 67 292 190 S317 273 343 245 S367 256 389 230 S415 274 443 255 S465 217 486 251 S510 277 535 252 S563 170 584 237 S616 267 640 248 S664 260 680 243"/>
-            <line x1="292" y1="60" x2="292" y2="295" class="marker"/><circle cx="292" cy="147" r="6" class="dot"/>
-          </svg>
-          <div class="readout"><span>Center frequency</span><strong>3.500 <small>GHz</small></strong><span>Analysis bandwidth</span><strong>80 <small>MHz</small></strong><span>Capture mode</span><strong>IQ <small>stream</small></strong></div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">View selected work <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="#contact">Get in touch</a>
         </div>
-        <div class="stage-bottom"><span>IQ / FFT / EVM / ACPR</span><span>SYSTEM VIEW</span></div>
+        <dl class="hero-facts">
+          <div><dt>Focus</dt><dd>RF &amp; instrumentation</dd></div>
+          <div><dt>From</dt><dd>Acquisition to analysis</dd></div>
+          <div><dt>Built for</dt><dd>Engineers in the loop</dd></div>
+        </dl>
       </div>
+      <figure class="signal-stage">
+        <div class="stage-top"><span>Measurement illustration</span><span>IQ / FFT / EVM / ACPR</span></div>
+        <div class="signal-plot">
+          <svg viewBox="0 0 640 220" role="img" aria-label="Illustrated spectrum trace with a marker on the main peak">
+            <g fill="none" stroke="#e4dfd4" stroke-width="1">
+              <path d="M0 44H640M0 88H640M0 132H640M0 176H640"/>
+              <path d="M80 16V204M160 16V204M240 16V204M320 16V204M400 16V204M480 16V204M560 16V204"/>
+            </g>
+            <polyline fill="none" stroke="#0e5c4a" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" points="0,187.6 8,187.4 16,187.1 24,186.8 32,186.3 40,185.6 48,184.9 56,184 64,183 72,181.9 80,180.9 88,179.9 96,179.1 104,178.5 112,178.1 120,178 128,178.2 136,178.7 144,179.5 152,180.3 160,181 168,180.4 176,175.9 184,162.4 192,135.5 200,98.7 208,67.2 216,60 224,82 232,119.6 240,153.5 248,174.4 256,183.8 264,186.9 272,187.5 280,187.3 288,186.7 296,185.6 304,184 312,182.2 320,180.5 328,179.5 336,179.2 344,179.5 352,179.7 360,179.1 368,177.1 376,173.5 384,168.4 392,162.1 400,155.4 408,149.1 416,143.9 424,140.7 432,140.1 440,142 448,146.3 456,152.2 464,158.9 472,165.6 480,171.7 488,176.7 496,180 504,180 512,174.7 520,165.7 528,161.2 536,166.8 544,177.1 552,184.4 560,187.2 568,187.9 576,188 640,188"/>
+            <line x1="216" y1="28" x2="216" y2="204" stroke="#1c211e" stroke-width="1" stroke-dasharray="3 4" opacity="0.55"/>
+            <circle cx="216" cy="60" r="3.5" fill="#0e5c4a"/>
+          </svg>
+        </div>
+        <dl class="readout">
+          <div><dt>Center frequency</dt><dd>3.500 <span>GHz</span></dd></div>
+          <div><dt>Analysis bandwidth</dt><dd>80 <span>MHz</span></dd></div>
+          <div><dt>Capture mode</dt><dd>IQ <span>stream</span></dd></div>
+        </dl>
+      </figure>
     </section>
 
-    <section class="proof" aria-label="Engineering focus"><p>Good measurement software makes the instrument more capable — and the next engineering decision easier.</p><div><span>01</span><span>Hardware-aware</span><span>02</span><span>Data-first</span><span>03</span><span>Built to evolve</span></div></section>
+    <section class="proof" aria-label="Engineering focus">
+      <div class="proof-inner">
+        <p>Good measurement software makes the instrument more capable — and the next engineering decision easier.</p>
+        <ul>
+          <li><span>01</span>Hardware-aware</li>
+          <li><span>02</span>Data-first</li>
+          <li><span>03</span>Built to evolve</li>
+        </ul>
+      </div>
+    </section>
 
     <section class="section work" id="work" aria-labelledby="work-title">
-      <div class="section-heading split"><div><p class="eyebrow">01 — Selected work</p><h2 id="work-title">The difficult part is making complex measurements repeatable.</h2></div><p>Representative systems and product directions. Details are shared where appropriate.</p></div>
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">01 — Selected work</p>
+          <h2 id="work-title">The difficult part is making complex measurements repeatable.</h2>
+        </div>
+        <p>Representative systems and product directions. Details are shared where appropriate.</p>
+      </div>
       <div class="case-grid">
-        <article class="case-card project-entry"><div class="case-index">01 / RAIL TRANSPORT</div><h3><a href="projects/ate/">ATE automated test platform</a></h3><p>Configurable protocols and reusable test sequences for railway communication equipment and IO test benches.</p><div class="tags"><span>C++ / Qt</span><span>MVB / TRDP</span></div><a class="entry-link" href="projects/ate/">View project ↗</a></article>
-        <article class="case-card project-entry"><div class="case-index">02 / MEASUREMENT SOFTWARE</div><h3><a href="projects/spectrum-analysis/">Spectrum analyzer platform</a></h3><p>Analysis workflows spanning swept and real-time spectrum, modulation and deep inspection of IQ data.</p><div class="tags"><span>SA / RTSA</span><span>LTE / NR</span><span>IQ analysis</span></div><a class="entry-link" href="projects/spectrum-analysis/">View project ↗</a></article>
-        <article class="case-card project-entry"><div class="case-index">03 / CUSTOM SOFTWARE PLATFORM</div><h3><a href="projects/instrument-software/">Instrument software platform</a></h3><p>A customizable platform integrating signal processing, measurement workflows, human-machine interaction and advanced rendering.</p><div class="tags"><span>Signal processing</span><span>Measurement workflows</span><span>C++ / Qt / OpenGL</span></div><a class="entry-link" href="projects/instrument-software/">View project ↗</a></article>
+        <article class="case-card project-entry">
+          <div class="case-index">01 / Rail transport</div>
+          <h3><a href="projects/ate/">ATE automated test platform</a></h3>
+          <p>Configurable protocols and reusable test sequences for railway communication equipment and IO test benches.</p>
+          <div class="tags"><span>C++ / Qt</span><span>MVB / TRDP</span></div>
+          <a class="entry-link" href="projects/ate/">View project ↗</a>
+        </article>
+        <article class="case-card project-entry">
+          <div class="case-index">02 / Measurement software</div>
+          <h3><a href="projects/spectrum-analysis/">Spectrum analyzer platform</a></h3>
+          <p>Analysis workflows spanning swept and real-time spectrum, modulation and deep inspection of IQ data.</p>
+          <div class="tags"><span>SA / RTSA</span><span>LTE / NR</span><span>IQ analysis</span></div>
+          <a class="entry-link" href="projects/spectrum-analysis/">View project ↗</a>
+        </article>
+        <article class="case-card project-entry">
+          <div class="case-index">03 / Custom software platform</div>
+          <h3><a href="projects/instrument-software/">Instrument software platform</a></h3>
+          <p>A customizable platform integrating signal processing, measurement workflows, human-machine interaction and advanced rendering.</p>
+          <div class="tags"><span>Signal processing</span><span>Measurement workflows</span><span>C++ / Qt / OpenGL</span></div>
+          <a class="entry-link" href="projects/instrument-software/">View project ↗</a>
+        </article>
       </div>
     </section>
 
-    <section class="section writing" id="writing" aria-labelledby="writing-title"><div class="section-heading"><p class="eyebrow">Engineering notes</p><h2 id="writing-title">Ideas behind the implementation.</h2></div><article class="writing-entry"><div><p class="case-index">TEST AUTOMATION · DESIGN NOTE</p><h3><a href="articles/configurable-test-workflows/">Configurable protocols and reusable test workflows</a></h3><p>Separating communication definitions from test intent in an ATE platform.</p></div><a class="entry-link" href="articles/configurable-test-workflows/">Read article ↗</a></article></section>
+    <section class="section writing" id="writing" aria-labelledby="writing-title">
+      <div class="section-heading">
+        <p class="eyebrow">Engineering notes</p>
+        <h2 id="writing-title">Ideas behind the implementation.</h2>
+      </div>
+      <article class="writing-entry">
+        <div>
+          <p class="case-index">Test automation · Design note</p>
+          <h3><a href="articles/configurable-test-workflows/">Configurable protocols and reusable test workflows</a></h3>
+          <p class="summary">Separating communication definitions from test intent in an ATE platform.</p>
+        </div>
+        <a class="entry-link" href="articles/configurable-test-workflows/">Read article ↗</a>
+      </article>
+    </section>
 
     <section class="section capabilities" id="capabilities" aria-labelledby="capabilities-title">
-      <div class="section-heading"><p class="eyebrow">02 — Capabilities</p><h2 id="capabilities-title">At the point where hardware, software and measurement meet.</h2></div>
+      <div class="section-heading">
+        <p class="eyebrow">02 — Capabilities</p>
+        <h2 id="capabilities-title">At the point where hardware, software and measurement meet.</h2>
+      </div>
       <div class="capability-grid">
         <article><span class="index">01</span><h3>Test systems</h3><p>Automation architectures for validation, manufacturing and communication-system test.</p><span class="tag">ATE / PXI(e) / LXI</span></article>
         <article><span class="index">02</span><h3>Signal analysis</h3><p>Acquisition and analysis workflows for spectrum, real-time systems and IQ data.</p><span class="tag">SA / RTSA / IQ</span></article>
@@ -67,10 +138,48 @@
       </div>
     </section>
 
-    <section class="approach" id="approach" aria-labelledby="approach-title"><div class="approach-intro"><p class="eyebrow">03 — Engineering approach</p><h2 id="approach-title">A useful instrument is a chain of decisions made visible.</h2><p>I approach measurement software as a connected system: clarify what must be observed, make the acquisition trustworthy, expose the analysis, then leave an execution trail someone can understand and extend.</p></div><ol class="approach-steps"><li><span>01</span><div><h3>Frame the measurement</h3><p>Define the signal, uncertainty and decisions that the system must support.</p></div></li><li><span>02</span><div><h3>Make capture dependable</h3><p>Coordinate devices, timing and data paths with failure modes in view.</p></div></li><li><span>03</span><div><h3>Turn data into insight</h3><p>Build analysis and interfaces that let engineers inspect, compare and act.</p></div></li><li><span>04</span><div><h3>Design for the next mode</h3><p>Keep the platform legible as hardware, tests and users change.</p></div></li></ol></section>
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="approach-intro">
+        <p class="eyebrow">03 — Engineering approach</p>
+        <h2 id="approach-title">A useful instrument is a chain of decisions made visible.</h2>
+        <p>I approach measurement software as a connected system: clarify what must be observed, make the acquisition trustworthy, expose the analysis, then leave an execution trail someone can understand and extend.</p>
+      </div>
+      <ol class="approach-steps">
+        <li><span>01</span><div><h3>Frame the measurement</h3><p>Define the signal, uncertainty and decisions that the system must support.</p></div></li>
+        <li><span>02</span><div><h3>Make capture dependable</h3><p>Coordinate devices, timing and data paths with failure modes in view.</p></div></li>
+        <li><span>03</span><div><h3>Turn data into insight</h3><p>Build analysis and interfaces that let engineers inspect, compare and act.</p></div></li>
+        <li><span>04</span><div><h3>Design for the next mode</h3><p>Keep the platform legible as hardware, tests and users change.</p></div></li>
+      </ol>
+    </section>
 
-    <section class="contact" id="contact"><div><p class="eyebrow">04 — Connect</p><h2>Building a test or measurement product?</h2></div><div><p>I welcome conversations about RF instruments, automated test and signal-processing software.</p><div class="contact-links"><a class="contact-link" href="mailto:chenxing88.zhang@gmail.com">chenxing88.zhang@gmail.com <span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">Connect on LinkedIn <span>↗</span></a><a class="contact-link contact-link-subtle" href="https://github.com/chenxing88zhang-ui" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div></div></section>
+    <section class="contact" id="contact">
+      <div>
+        <p class="eyebrow">04 — Connect</p>
+        <h2>Building a test or measurement product?</h2>
+      </div>
+      <div>
+        <p>I welcome conversations about RF instruments, automated test and signal-processing software.</p>
+        <div class="contact-links">
+          <a class="button button-primary" href="mailto:chenxing88.zhang@gmail.com">chenxing88.zhang@gmail.com <span aria-hidden="true">↗</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="contact-link contact-link-subtle" href="https://github.com/chenxing88zhang-ui" target="_blank" rel="noreferrer">GitHub profile <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><a class="brand" href="#top"><span class="brand-mark">CZ</span><span>CHENXING ZHANG</span></a><span>© 2026 · Test &amp; Measurement Software</span><a href="#top">Back to top ↑</a></footer>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">CZ</span><span class="brand-name">Chenxing Zhang</span></a>
+      <p class="footer-meta">© 2026 · Test &amp; Measurement Software</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="mailto:chenxing88.zhang@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/chenxing88zhang-ui" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="#top">Back to top ↑</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="site.js"></script>
 </body>
 </html>

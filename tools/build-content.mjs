@@ -46,20 +46,77 @@ const pages = [
   }
 ];
 
+const fontHref = 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&amp;family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&amp;display=swap';
+
 export function renderPage(page) {
   const article = page.type === 'article';
   const section = article ? 'Writing' : 'Work';
   const anchor = article ? 'writing' : 'work';
+  const rootTag = article ? 'article' : 'div';
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="${page.summary}" /><title>${page.title} — Chenxing Zhang</title><link rel="icon" href="../../favicon.svg" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" /><link rel="stylesheet" href="../../style.css" /><link rel="stylesheet" href="../../overrides.css" /></head>
-<body><header class="site-header"><a class="brand" href="../../" aria-label="Chenxing Zhang home"><span class="brand-mark">CZ</span><span>CHENXING ZHANG</span></a><nav aria-label="Primary navigation"><a href="../../#work">Work</a><a href="../../#writing">Writing</a><a href="../../#capabilities">Capabilities</a><a href="../../#contact">Contact</a></nav><a class="header-link" href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a></header>
-<main id="top" class="detail-main${article ? ' article-main' : ''}"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../../#${anchor}">${section}</a><span>/</span><span aria-current="page">${page.title}</span></nav><${article ? 'article' : 'div'}><header class="detail-hero"><p class="eyebrow">${page.label}</p><h1>${page.title}</h1><p class="lede">${page.summary}</p><div class="detail-meta">${page.meta.map(item => `<span>${item}</span>`).join('')}</div></header>${page.body}</${article ? 'article' : 'div'}><nav class="detail-end" aria-label="Page navigation"><a href="../../#${anchor}">← Back to ${section.toLowerCase()}</a><a href="mailto:chenxing88.zhang@gmail.com">Discuss this ${article ? 'note' : 'project'} ↗</a></nav></main>
-<footer><a class="brand" href="../../"><span class="brand-mark">CZ</span><span>CHENXING ZHANG</span></a><div class="detail-footer"><a href="mailto:chenxing88.zhang@gmail.com">Email</a><a href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/chenxing88zhang-ui" target="_blank" rel="noreferrer">GitHub ↗</a></div></footer></body></html>`;
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="${page.summary}" />
+  <meta name="theme-color" content="#f4f2ec" />
+  <title>${page.title} — Chenxing Zhang</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="${fontHref}" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <noscript><style>@media (max-width: 760px) { .nav-toggle { display: none !important; } .header-inner { flex-wrap: wrap; } .site-nav { display: flex !important; position: static !important; flex-basis: 100%; flex-direction: column; align-items: stretch; margin: 0 0 .5rem; } }</style></noscript>
+</head>
+<body${article ? ' class="article"' : ''}>
+  <a class="skip-link" href="#top">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Chenxing Zhang home"><span class="brand-mark" aria-hidden="true">CZ</span><span class="brand-name">Chenxing Zhang</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-text">Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="../../#work">Work</a>
+        <a href="../../#writing">Writing</a>
+        <a href="../../#capabilities">Capabilities</a>
+        <a href="../../#contact">Contact</a>
+        <a class="nav-external" href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top" class="detail-main${article ? ' article-main' : ''}">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../../#${anchor}">${section}</a><span>/</span><span aria-current="page">${page.title}</span></nav>
+    <${rootTag}>
+      <header class="detail-hero">
+        <p class="eyebrow">${page.label}</p>
+        <h1>${page.title}</h1>
+        <p class="lede">${page.summary}</p>
+        <div class="detail-meta">${page.meta.map(item => `<span>${item}</span>`).join('')}</div>
+      </header>
+      ${page.body}
+    </${rootTag}>
+    <nav class="detail-end" aria-label="Page navigation"><a href="../../#${anchor}">← Back to ${section.toLowerCase()}</a><a href="mailto:chenxing88.zhang@gmail.com">Discuss this ${article ? 'note' : 'project'} ↗</a></nav>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">CZ</span><span class="brand-name">Chenxing Zhang</span></a>
+      <p class="footer-meta">© 2026 · Test &amp; Measurement Software</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="mailto:chenxing88.zhang@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/chenxing88zhang-ui" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="#top">Back to top ↑</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../../site.js"></script>
+</body>
+</html>
+`;
 }
 
 for (const page of pages) {
   const dir = resolve(root, 'dist', page.path);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(resolve(dir, 'index.html'), renderPage(page).replace('href="../../overrides.css"', 'href="../../content-v2.css"'));
+  writeFileSync(resolve(dir, 'index.html'), renderPage(page));
 }
 console.log(`Built ${pages.length} content pages.`);
