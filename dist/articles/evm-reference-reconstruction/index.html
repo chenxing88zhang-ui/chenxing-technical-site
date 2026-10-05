@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Reference reconstruction and normalization decide whether an EVM figure is a measurement or a debug aid." />
+  <meta name="theme-color" content="#f4f2ec" />
+  <title>Why EVM is not the distance to the nearest constellation point — Chenxing Zhang</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&amp;family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <noscript><style>@media (max-width: 760px) { .nav-toggle { display: none !important; } .header-inner { flex-wrap: wrap; } .site-nav { display: flex !important; position: static !important; flex-basis: 100%; flex-direction: column; align-items: stretch; margin: 0 0 .5rem; } }</style></noscript>
+</head>
+<body class="article">
+  <a class="skip-link" href="#top">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Chenxing Zhang home"><span class="brand-mark" aria-hidden="true">CZ</span><span class="brand-name">Chenxing Zhang</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-text">Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="../../#work">Work</a>
+        <a href="../../#writing">Writing</a>
+        <a href="../../#capabilities">Capabilities</a>
+        <a href="../../#contact">Contact</a>
+        <a class="nav-external" href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top" class="detail-main article-main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../../#writing">Writing</a><span>/</span><span aria-current="page">Why EVM is not the distance to the nearest constellation point</span></nav>
+    <article>
+      <header class="detail-hero">
+        <p class="eyebrow">Engineering note / Vector signal analysis</p>
+        <h1>Why EVM is not the distance to the nearest constellation point</h1>
+        <p class="lede">Reference reconstruction and normalization decide whether an EVM figure is a measurement or a debug aid.</p>
+        <div class="detail-meta"><span>Chenxing Zhang</span><span>5 October 2026</span><span>7 min read</span></div>
+      </header>
+      <section class="detail-section"><h2>Specification EVM compares two waveforms</h2><p>A recovered 16QAM cloud shows where samples landed. The distance from each sample to the nearest ideal point is a short calculation, and many lab scripts publish it as EVM. That distance describes the slicer. The error vector magnitude used against a transmitter limit is a different operation: subtract a reference waveform from the measured waveform, then divide by a stated reference power.</p><p>3GPP NR uplink (TS 38.101-1) is one concrete case. The reference is the ideal signal reconstructed by the measurement equipment. Sample timing and RF frequency offset are corrected first, carrier leakage is removed and reported on its own, and a defined equalizer is applied under a spectrum-flatness constraint. The ratio is taken over a slot, or over a preamble, after power transients are left out.</p><p>General-purpose single-carrier analysis uses the same idea with its own filter and interval. Software in the class of R&amp;S VSE and Keysight 89600 VSA rebuilds a reference from a known sequence or from recovered bits, applies the measurement filter named by the setup, aligns it, and forms the ratio. A nearest-constellation score skips that reconstruction. A different reference, filter, alignment, or denominator yields a different percent from the same I/Q capture.</p></section>
+<section class="detail-section"><h2>A hard decision bounds the error</h2><p>A slicer assigns each received symbol to the constellation point of its decision region, and the error vector is drawn to that point. The vector stops at the region boundary. A sample that has crossed into the next cell is scored as a small residual about the wrong symbol, so decision mistakes pull the reported figure down. Once the slicer is failing, a larger impairment can produce a smaller “EVM”.</p><p>An unconstrained equalizer does the same thing if the metric is taken after the taps have moved samples onto the lattice. Residual inter-symbol interference, compression, and group delay move into the weights. The cloud tightens. The transmitter impairment is no longer in the number. A measurement that equalizes has to say so, and it has to show the equalizer’s frequency response beside the result. A low figure then means the residual after a stated correction, which is something an engineer can audit.</p><p>The nearest-point figure still belongs on a debug display. Call it decision EVM, keep it out of any result compared with a limit, and keep it out of the expected column when checking an implementation.</p>
+<table>
+<thead><tr><th></th><th>Decision EVM</th><th>Reference EVM</th></tr></thead>
+<tbody>
+<tr><td>Symbol source</td><td>Nearest constellation point</td><td>Known sequence, or bits recovered and remodulated</td></tr>
+<tr><td>Wrong decision</td><td>Residual shrinks, measured to the wrong point</td><td>Residual grows, because the reference symbol is wrong</td></tr>
+<tr><td>Filter</td><td>Whatever the plot happened to use</td><td>The measurement filter named by the definition</td></tr>
+<tr><td>Equalizer</td><td>Can absorb the impairment into the cloud</td><td>Included only as the definition allows, with its response shown</td></tr>
+<tr><td>Scale</td><td>Often unspecified</td><td>RMS or peak, over a stated power and interval</td></tr>
+</tbody>
+</table>
+</section>
+<section class="detail-section"><h2>Rebuild the reference from the bits</h2><p>For single-carrier PSK or QAM the chain is fixed before a percent is computed. Select the analysis region. Remove carrier leakage when the definition removes it. Resample to a rational multiple of the symbol rate. Apply a matched filter of the same family, roll-off, span, and group delay as the transmit filter. Recover symbol timing, then carrier frequency and phase. Equalize only inside the constraint the definition sets. Demap to bits, or substitute the known sequence. Remodulate those bits, pulse-shape them with the reference filter, align time, phase, and gain to the measured waveform, and subtract.</p>
+<pre><code>e[k]    = y[k] - r[k]
+EVM_rms = sqrt( sum |e[k]|^2 / sum |r[k]|^2 )</code></pre>
+<p><code>y</code> is the measured signal after the corrections the definition allows. <code>r</code> is the reconstructed reference. The sum runs over the samples, or the symbol instants, that the definition includes. The bits are what produce <code>r</code>.</p><p>Recovered bits fail in the opposite direction from a slicer. One bit error rebuilds the wrong symbol and that symbol adds a large residual, so the EVM rises. On a limit test that is the conservative direction. When the payload is a known sequence, rebuild from the sequence and the metric no longer depends on the slicer.</p><p>The filter is part of the reference. Root-raised-cosine against a different roll-off, span, or delay leaves a residual that sits under the EVM and looks like additive noise. The constellation can still look round. A second implementation that used the specified pair will report a different number, and both readings can be internally consistent.</p><p>Timing and carrier recovery exist so sample-clock offset and carrier offset can be removed before the subtraction. A Gardner loop, an early-late gate, or an Oerder–Meyr estimate, followed by a coarse frequency estimate and a phase tracker, are there for that correction. A loop wide enough to follow symbol-to-symbol phase moves part of the impairment into the correction, and the residual falls. Record the loop bandwidth with the result.</p></section>
+<section class="detail-section"><h2>Normalization is part of the definition</h2><p>The RMS form above is the square root of mean error power over mean reference power. In percent, multiply by 100. In dB, take 20 log10 of the ratio: EVM is a magnitude ratio. Scale the reference symbols so their mean square amplitude is 1, and the denominator drops out; the RMS EVM is then the RMS of <code>e</code> itself. Peak EVM replaces the mean error power with the largest <code>|e|</code>.</p><p>Several choices move the reported value while the capture stays fixed.</p>
+<ul>
+<li><strong>Denominator.</strong> RMS power of the reconstructed reference, average power of the constellation, or power of the outermost symbol. Peak normalization returns a smaller percent on the same error, because outer QAM points carry more power than the mean symbol.</li>
+<li><strong>Origin offset.</strong> NR removes carrier leakage before the ratio and reports it separately. Leaving the offset inside the error adds a constant term to every symbol.</li>
+<li><strong>What is corrected first.</strong> Sample timing and RF frequency offset come out before the ratio. A procedure that also removes gain imbalance and quadrature error is a narrower measurement than one that leaves those terms inside EVM.</li>
+<li><strong>Equalizer.</strong> A stated equalizer with a flatness limit, as in NR, is one measurement. An unconstrained adaptive equalizer is another.</li>
+<li><strong>Interval.</strong> One slot, one burst, or a preamble, excluding power transients and resource elements that were not allocated. Extending the average across a quieter region lowers the number.</li>
+<li><strong>Domain.</strong> Waveform EVM after the measurement filter, and symbol EVM at the decision instant, answer different questions. Publishing one under the other’s name is a comparison error.</li>
+</ul>
+<p>Put the choices next to the result: modulation, filter, origin-offset removal, equalizer on or off, RMS or peak, and the interval. Two setups can then disagree for a reason that can be checked.</p></section>
+<section class="detail-section"><h2>A low residual means the chain agreed</h2><p>A small EVM means timing, carrier recovery, filtering, any equalizer the definition allows, reference alignment, and normalization all ran as specified. Any one stage can dominate. Split the summary. Frequency error, origin offset, gain imbalance, quadrature error, amplitude error, and phase error each need their own estimator. An EVM-versus-symbol trace shows a burst edge or a single bad decision that the RMS average hides. When every injected impairment moves only the single EVM figure, those estimators are still folded together.</p><p>The constellation, the error trace, and the summary table have to be one result generation. Changing the roll-off or the analysis interval invalidates all three. A plot drawn from a later computation than the table is a false reading, however smooth the cloud looks.</p></section>
+<section class="detail-section"><h2>Prove the definition on known I/Q</h2><p>Generate I/Q from a known symbol sequence and a known pulse-shaping filter. With no added impairment, reference-reconstruction EVM should sit at the numerical floor of the arithmetic in use. That floor follows from word length and filter length. Compute it for the implementation under test. A threshold copied from another instrument is a different setup’s floor, and it is not a specification of this one.</p><p>Add one impairment at a time. A frequency offset should appear in the frequency-error result and, once the definition compensates it, leave EVM near that floor. Additive noise should raise EVM and leave origin offset and imbalance where they were. A gain imbalance should move the imbalance result in the injected direction. A wrong roll-off should raise the floor while the constellation still looks acceptable.</p><p>A nearest-point implementation can pass the mild cases and still read low once symbols cross a boundary, or once an equalizer closes around the impairment. Keep decision EVM in the regression when it helps debugging. Store the reference-reconstruction result as the expected value.</p><p>The <a href="../../projects/spectrum-analysis/">spectrum analyzer platform</a> is where modulation results sit beside the trace and the I/Q capture. The constellation and eye views on the <a href="../../projects/instrument-software/">instrument software platform</a> are density pictures of a generated 16QAM signal. They show where samples land. They are pictures of the cloud, and the measurement above is the comparison against a rebuilt reference.</p></section>
+    </article>
+    <nav class="detail-end" aria-label="Page navigation"><a href="../../#writing">← Back to writing</a><a href="mailto:chenxing88.zhang@gmail.com">Discuss this note ↗</a></nav>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">CZ</span><span class="brand-name">Chenxing Zhang</span></a>
+      <p class="footer-meta">© 2026 · Test &amp; Measurement Software</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="mailto:chenxing88.zhang@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/chenxing-zhang-8663322b7/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/chenxing88zhang-ui" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="#top">Back to top ↑</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="../../site.js"></script>
+</body>
+</html>
